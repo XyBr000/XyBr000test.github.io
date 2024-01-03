@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rota Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+      }
+
+      .container {
+        max-width: 100%; /* Set the max-width to 100% to use the full viewport width */
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .form-row div {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      .form-row div:last-child {
+        margin-right: 0;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        background: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background: #0056b3;
+      }
+
+      #rotaContainer {
+        display: grid;
+        grid-template-columns: repeat(
+          7,
+          1fr
+        ); /* Creates 7 columns of equal width */
+        gap: 10px; /* Optional: adds space between the columns */
+        margin-top: 30px;
+        padding: 0 20px; /* Add horizontal padding if needed */
+      }
+
+      #staffData {
+        margin-top: 30px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #staffList {
+        list-style: none;
+        padding: 0;
+      }
+
+      #staffList li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      #staffList li:last-child {
+        border-bottom: none;
+      }
+      #rotaContainer {
+        display: grid;
+        grid-template-columns: repeat(
+          7,
+          1fr
+        ); /* Creates 7 columns of equal width */
+        gap: 10px; /* Optional: adds space between the columns */
+        margin-top: 30px;
+      }
+
+      .day {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        /* If you want the days to stretch to the edges, remove horizontal padding here */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rota Generator Form</h1>
+      <form id="rotaForm">
+        <div class="form-row">
+          <div>
+            <input
+              type="number"
+              id="monday_staff_requirement"
+              placeholder="Monday Staff Requirement"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              id="tuesday_staff_requirement"
+              placeholder="Tuesday Staff Requirement"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              id="wednesday_staff_requirement"
+              placeholder="Wednesday Staff Requirement"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <input
+              type="number"
+              id="thursday_staff_requirement"
+              placeholder="Thursday Staff Requirement"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              id="friday_staff_requirement"
+              placeholder="Friday Staff Requirement"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              id="saturday_staff_requirement"
+              placeholder="Saturday Staff Requirement"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <input
+              type="number"
+              id="sunday_staff_requirement"
+              placeholder="Sunday Staff Requirement"
+              required
+            />
+          </div>
+          <div><button type="submit">Generate Rota</button></div>
+        </div>
+      </form>
+      <div id="rotaContainer">
+        <div class="day" id="monday">Monday</div>
+        <div class="day" id="tuesday">Tuesday</div>
+        <div class="day" id="wednesday">Wednesday</div>
+        <div class="day" id="thursday">Thursday</div>
+        <div class="day" id="friday">Friday</div>
+        <div class="day" id="saturday">Saturday</div>
+        <div class="day" id="sunday">Sunday</div>
+      </div>
+      <div id="staffData">
+        <h2>Staff Data</h2>
+        <ul id="staffList"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
